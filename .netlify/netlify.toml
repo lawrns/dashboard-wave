@@ -1,0 +1,124 @@
+functionsDirectory = "/Users/julian/Desktop/admin-dashboard/netlify/functions"
+functionsDirectoryOrigin = "ui"
+headersOrigin = "inline"
+redirectsOrigin = "inline"
+
+[dev]
+command = "npm run dev"
+port = 3001.0
+publish = ".next"
+
+[images]
+remote_images = ["^(?:http(?:s)?:\\/\\/firebasestorage\\.googleapis\\.com(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)|$))$"]
+
+[functions]
+
+[functions."*"]
+
+[[plugins]]
+origin = "default"
+package = "@netlify/plugin-nextjs"
+pinned_version = "5"
+
+[plugins.inputs]
+
+[build]
+publish = "/Users/julian/Desktop/admin-dashboard/.next"
+publishOrigin = "config"
+commandOrigin = "config"
+command = "npm run build"
+functions = "/Users/julian/Desktop/admin-dashboard/netlify/functions"
+
+[build.environment]
+NODE_VERSION = "18"
+SECRETS_SCAN_SMART_DETECTION_ENABLED = "true"
+SECRETS_SCAN_SMART_DETECTION_OMIT_VALUES = "AIzaSy*,*.firebaseapp.com,*.firebasestorage.app,1:*:*:web:*,G-*,221240912006,heiwahousedashboard,firebase-adminsdk-fbsvc@heiwahousedashboard.iam.gserviceaccount.com,AIzaSyDQTtlEowOBdeDj-StcrlnscogXpmy52x4,demo-api-key,demo-project,G-DEMOMEASURE"
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]
+
+[[headers]]
+for = "/api/*"
+
+[headers.values]
+Access-Control-Allow-Origin = "*"
+Access-Control-Allow-Headers = "Content-Type"
+Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
+
+[[headers]]
+for = "/*"
+
+[headers.values]
+X-Frame-Options = "DENY"
+X-XSS-Protection = "1; mode=block"
+X-Content-Type-Options = "nosniff"
+Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+for = "/_next/static/*"
+
+[headers.values]
+Cache-Control = "public, max-age=31536000, immutable"
+
+[[redirects]]
+from = "/api/*"
+to = "/.netlify/functions/:splat"
+status = 200.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/_next/static/*"
+to = "/static/:splat"
+status = 200.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/_next/image"
+to = "/.netlify/images?url=:url&w=:width&q=:quality"
+status = 200.0
+force = false
+
+[redirects.query]
+url = ":url"
+w = ":width"
+q = ":quality"
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/_ipx/*"
+to = "/.netlify/images?url=:url&w=:width&q=:quality"
+status = 200.0
+force = false
+
+[redirects.query]
+url = ":url"
+w = ":width"
+q = ":quality"
+
+[redirects.conditions]
+
+[redirects.headers]
